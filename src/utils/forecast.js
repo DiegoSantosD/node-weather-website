@@ -13,7 +13,8 @@ const forecast = (latitude, longitude, callback) => {
                 temperature: Math.round(body.current.temp),
                 weather: body.current.weather[0].description,
                 min: Math.round(body.daily[0].temp.min),
-                max: Math.round(body.daily[0].temp.max)
+                max: Math.round(body.daily[0].temp.max),
+                wind: Math.round(body.current.wind_speed)
             })
         }
     })        

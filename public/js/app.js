@@ -10,10 +10,10 @@ weatherForm.addEventListener('submit', (e) => {
     messageTwo.textContent = ''
 
     fetch('/weather?address=' + location).then((response) => {
-        response.json().then(({error, location, forecast: {temperature, weather, min, max} = {}}) => {
+        response.json().then(({error, location, forecast: {temperature, weather, min, max, wind} = {}}) => {
             if (error) return messageOne.textContent = error
             messageOne.textContent = location
-            messageTwo.textContent = 'A temperatura atual é de ' + temperature + ' graus, ' + weather + '. A mínima deve ficar em ' + min + ' graus e a máxima não deve passar de ' + max + '.'
+            messageTwo.textContent = 'A temperatura atual é de ' + temperature + ' graus, ' + weather + '. A mínima deve ficar em ' + min + ' graus e a máxima não deve passar de ' + max + '.' + ' Os ventos podem atingir até ' + wind + ' Km/h.'
         })
     })
 })
